@@ -1,0 +1,11 @@
+site_name: understand
+site_description: Understandable api
+repo_url: https://github.com/VitorCapuano/understandable
+site_dir: site
+copyright: Copyright &copy; 2015, <a href="https://github.com/VitorCapuano">VitorCapuano</a>.
+
+pages:
+  - Home: 'index.md'
+  - API:
+    - Authentication: 'api/authentication.md'
+    - Users: 'api/users.md'
