@@ -53,12 +53,12 @@ class Common(Configuration):
     )
 
     # Postgres
-    DATABASES = values.DatabaseURLValue('postgres://localhost/understand')
+    DATABASES = values.DatabaseURLValue('mysql://root:root@localhost:3306')
 
     # General
     APPEND_SLASH = values.BooleanValue(False)
-    TIME_ZONE = 'UTC'
-    LANGUAGE_CODE = 'en-us'
+    TIME_ZONE = 'America/Sao_Paulo'
+    LANGUAGE_CODE = 'pt-br'
     # If you set this to False, Django will make some optimizations so as not
     # to load the internationalization machinery.
     USE_I18N = False
