@@ -19,6 +19,9 @@ django-filter==1.0.4
 # Static files
 whitenoise==3.3.0
 
+# Backend pool
+ramos==1.0.0
+
 # Media files
 boto==2.48.0
 django_unique_upload==0.2.1

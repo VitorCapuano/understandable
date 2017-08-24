@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^produto/(?P<pk>[0-9]+)/$', views.ProductDetail.as_view()),
     url(r'^supermercado/$', views.SupermarketList.as_view()),
     url(r'^supermercado/(?P<pk>[0-9]+)/$', views.SupermarketDetail.as_view()),
+    url(r'^supermercado/(?P<pk>[0-9]+)/produtos/$', views.supermarket_list),
 ]
