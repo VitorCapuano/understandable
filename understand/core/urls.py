@@ -1,8 +1,13 @@
 from django.conf.urls import include, url
+from rest_framework.urlpatterns import format_suffix_patterns
 
-from rest_framework.authtoken import views
+from core import views
 
 urlpatterns = [
-    url(r'^api-token-auth/', views.obtain_auth_token),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^categoria/$', views.CategoryList.as_view()),
+    url(r'^categoria/(?P<pk>[0-9]+)/$', views.CategoryDetail.as_view()),
+    url(r'^produto/$', views.ProductList.as_view()),
+    url(r'^produto/(?P<pk>[0-9]+)/$', views.ProductDetail.as_view()),
+    url(r'^supermercado/$', views.SupermarketList.as_view()),
+    url(r'^supermercado/(?P<pk>[0-9]+)/$', views.SupermarketDetail.as_view()),
 ]
