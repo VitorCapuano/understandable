@@ -21,7 +21,6 @@ urlpatterns = [
     url(r'^', include('authentication.urls')),
     url(r'^', include('core.urls')),
     url(r'^', include(router.urls)),
-    url(r'^django-rq/', include('django_rq.urls')),
 
     # the 'api-root' from django rest-frameworks default router
     # http://www.django-rest-framework.org/api-guide/routers/#defaultrouter

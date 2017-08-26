@@ -20,11 +20,11 @@ class Common(Configuration):
         # Third party apps
         'rest_framework',            # utilities for rest apis
         'rest_framework.authtoken',  # token authentication
-        'django_rq',                 # asynchronous queuing
         'versatileimagefield',       # image manipulation
 
         # Your apps
         'authentication',
+        'backends',
         'users',
         'core'
 
@@ -41,6 +41,16 @@ class Common(Configuration):
         'django.middleware.security.SecurityMiddleware'
     )
 
+    # backend pool configurations
+    POOL_OF_RAMOS = {
+        'common_many_to_many': [
+            'backends.extensions.many_list.ManyToManyRelated',
+        ]
+    }
+
+    DEFAULT_MANY_TO_MANY_PRODUCT_LIST_BACKEND = 'common_many_to_many'
+
+    ###
     ROOT_URLCONF = 'urls'
 
     SECRET_KEY = 'Not a secret'
@@ -227,9 +237,3 @@ class Common(Configuration):
         'placeholder_directory_name': '__placeholder__',
         'create_images_on_demand': False
     }
-
-    # django-rq
-    # Adds dashboard link for queues in /admin, This will override the default
-    # admin template so it may interfere with other apps that modify the
-    # default admin template. If you're using such an app, simply remove this.
-    RQ_SHOW_ADMIN_LINK = True
