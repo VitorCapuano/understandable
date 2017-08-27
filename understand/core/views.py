@@ -9,6 +9,7 @@ from rest_framework.response import Response
 
 from backends.extensions.many_list import ManyToManyRelated
 from backends.pools.many_list import ManyListPool
+from .helpers import make_pagination_view
 from users.permissions import IsUserOrReadOnly
 from core.models import *
 from .serializers import *
@@ -64,15 +65,9 @@ def supermarket_list(request, pk):
     """
     backend = ManyListPool.get('common_many_to_many')
     response = backend.list_related(Supermarket, pk)
-    paginator = Paginator(response['products'], 10)
-    page = request.GET.get('page')
 
-    try:
-        response = paginator.page(page)
-    except PageNotAnInteger:
-        response = paginator.page(1)
-    except EmptyPage:
-        response = paginator.page(paginator.num_pages)
+    page = request.GET.get('page', '1')
+    response = make_pagination_view(response['products'], page)
 
     serializer = ProductSerializer(response, many=True)
     return Response(serializer.data)

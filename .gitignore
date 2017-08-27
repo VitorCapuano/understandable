@@ -2,6 +2,7 @@
 *.db
 *~
 *.idea/
+*.cache/
 
 html/
 htmlcov/
