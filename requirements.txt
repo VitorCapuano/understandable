@@ -59,3 +59,5 @@ coverage==4.4.1
 
 # Style Enforcement
 flake8==3.3.0
+
+PyMySQL==0.7.11
