@@ -45,8 +45,6 @@ class SupermarketDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CategoryList(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated,)
-    authentication_classes = (TokenAuthentication,)
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
@@ -57,16 +55,22 @@ class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
 
 @api_view(['GET'])
 def supermarket_list(request, pk):
     """
     List specific products off a supermarket.
     """
+    logger.error("TACALE PAU")
     backend = ManyListPool.get('common_many_to_many')
     response = backend.list_related(Supermarket, pk)
 
-    page = request.GET.get('page', '1')
+    page = request.GET.get('page', 1)
     response = make_pagination_view(response['products'], page)
 
     serializer = ProductSerializer(response, many=True)

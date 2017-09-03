@@ -12,6 +12,7 @@ class SupermarketAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name',)
     pass
 
 admin.site.register(Product, ProductAdmin)

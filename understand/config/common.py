@@ -26,7 +26,8 @@ class Common(Configuration):
         'authentication',
         'backends',
         'users',
-        'core'
+        'core',
+        'django_nose'
 
     )
 
@@ -149,10 +150,6 @@ class Common(Configuration):
             'simple': {
                 'format': '%(levelname)s %(message)s'
             },
-            'rq_console': {
-                'format': '%(asctime)s %(message)s',
-                'datefmt': '%H:%M:%S',
-            },
         },
         'filters': {
             'require_debug_true': {
@@ -170,12 +167,6 @@ class Common(Configuration):
                 'filters': ['require_debug_true'],
                 'class': 'logging.StreamHandler',
                 'formatter': 'simple'
-            },
-            'rq_console': {
-                'level': 'DEBUG',
-                'class': 'rq.utils.ColorizingStreamHandler',
-                'formatter': 'rq_console',
-                'exclude': ['%(asctime)s'],
             },
             'mail_admins': {
                 'level': 'ERROR',
@@ -196,10 +187,6 @@ class Common(Configuration):
                 'handlers': ['mail_admins'],
                 'level': 'ERROR',
                 'propagate': False,
-            },
-            'rq.worker': {
-                'handlers': ['rq_console'],
-                'level': 'DEBUG'
             }
         }
     }
