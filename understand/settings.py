@@ -16,6 +16,8 @@ class Production(Common):
 
     DEBUG = False
 
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
     # Honor the 'X-Forwarded-Proto' header for request.is_secure()
     # https://devcenter.heroku.com/articles/getting-started-with-django
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
