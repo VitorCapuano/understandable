@@ -26,9 +26,7 @@ class Common(Configuration):
         'authentication',
         'backends',
         'users',
-        'core',
-        'django_nose'
-
+        'core'
     )
 
     # https://docs.djangoproject.com/en/1.10/topics/http/middleware/
