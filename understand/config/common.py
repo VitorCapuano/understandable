@@ -67,7 +67,7 @@ class Common(Configuration):
 
     # General
     APPEND_SLASH = values.BooleanValue(False)
-    TIME_ZONE = 'America/Sao_Paulo'
+    TIME_ZONE = 'Brazil/East'
     LANGUAGE_CODE = 'pt-br'
     # If you set this to False, Django will make some optimizations so as not
     # to load the internationalization machinery.
