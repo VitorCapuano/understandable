@@ -26,7 +26,11 @@ class Common(Configuration):
         'authentication',
         'backends',
         'users',
-        'core'
+        'products',
+        'category',
+        'cart',
+        'supermarket',
+        'core',
     )
 
     # https://docs.djangoproject.com/en/1.10/topics/http/middleware/

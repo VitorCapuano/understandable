@@ -3,8 +3,8 @@ from rest_framework import serializers
 from supermarket.models import Supermarket
 
 
-class ProductSupermarketSerializer(serializers.ModelSerializer):
+class SupermarketSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Supermarket
-        fields = ('name',)
+        fields = '__all__'
