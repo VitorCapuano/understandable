@@ -36,6 +36,7 @@ def supermarket_list(request, pk):
     """
     logger.info("TACALE PAU")
     backend = ManyListPool.get('common_many_to_many')
+    import ipdb; ipdb.set_trace()
     response = backend.list_related(Supermarket, pk)
 
     page = request.GET.get('page', 1)
