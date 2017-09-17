@@ -31,6 +31,8 @@ class Common(Configuration):
         'cart',
         'supermarket',
         'core',
+        'client',
+        'partner'
     )
 
     # https://docs.djangoproject.com/en/1.10/topics/http/middleware/
