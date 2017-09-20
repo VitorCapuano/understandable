@@ -1,6 +1,6 @@
+from brazilnum.cpf import validate_cpf
 from django.conf import settings
 from django.db import models
-from brazilnum.cpf import validate_cpf
 
 
 class Client(models.Model):
@@ -10,7 +10,7 @@ class Client(models.Model):
     cep = models.CharField(max_length=8, blank=False, verbose_name='Cep')
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='user_client')
 
-    def save(self, *args, **kwargs):
+    def clean_fields(self, exclude=None):
         if not validate_cpf(self.cpf):
             raise Exception("Invalid CPF")
-        super(Client, self).save(*args, **kwargs)
+        super(Client, self).clean_fields()

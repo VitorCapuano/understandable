@@ -43,13 +43,17 @@ class Common(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'django.middleware.security.SecurityMiddleware'
+        'django.middleware.security.SecurityMiddleware',
+        'django.middleware.locale.LocaleMiddleware'
     )
 
     # backend pool configurations
     POOL_OF_RAMOS = {
         'common_many_to_many': [
             'backends.extensions.many_list.ManyToManyRelated',
+        ],
+        'cart':[
+            'backends.extensions.cart.CartBackend'
         ]
     }
 

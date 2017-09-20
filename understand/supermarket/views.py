@@ -9,14 +9,13 @@ from rest_framework.response import Response
 from backends.pools.many_list import ManyListPool
 from core.helpers import make_pagination_view
 from products.serializers import ProductSerializer
-from supermarket.serializers import SupermarketSerializer
 from supermarket.models import Supermarket
+from supermarket.serializers import SupermarketSerializer
 
 logger = logging.getLogger(__name__)
 
 
 class SupermarketList(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
     queryset = Supermarket.objects.all()
     serializer_class = SupermarketSerializer
@@ -34,6 +33,7 @@ def supermarket_list(request, pk):
     """
     List specific products off a supermarket.
     """
+    import pdb; pdb.set_trace()
     logger.info("TACALE PAU")
     backend = ManyListPool.get('common_many_to_many')
     response = backend.list_related(Supermarket, pk)

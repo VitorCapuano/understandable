@@ -11,7 +11,7 @@ class Partner(models.Model):
     cep = models.CharField(max_length=8, blank=False, verbose_name='Cep')
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='user_partner')
 
-    def save(self, *args, **kwargs):
+    def clean_fields(self, exclude=None):
         if not validate_cnpj(self.cnpj):
             raise Exception("Invalid CNPJ")
-        super(Partner, self).save(*args, **kwargs)
+        super(Partner, self).save()
