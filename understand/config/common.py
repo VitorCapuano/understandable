@@ -52,7 +52,7 @@ class Common(Configuration):
         'common_many_to_many': [
             'backends.extensions.many_list.ManyToManyRelated',
         ],
-        'cart':[
+        'cart': [
             'backends.extensions.cart.CartBackend'
         ]
     }

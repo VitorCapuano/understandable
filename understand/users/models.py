@@ -11,7 +11,7 @@ from django.utils.encoding import python_2_unicode_compatible
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     tel = models.CharField(null=True, max_length=14)
-    birth_date = models.DateField(null=False)
+    birth_date = models.DateField(null=True)
     cel = models.CharField(null=True, max_length=14)
 
     def __str__(self):

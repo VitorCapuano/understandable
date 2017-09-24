@@ -10,3 +10,7 @@ class CartInterface(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def create_or_get_cart(self, user, supermarket):
         pass
+
+    @abc.abstractmethod
+    def delete_cart(self, user):
+        pass

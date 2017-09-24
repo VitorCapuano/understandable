@@ -32,6 +32,9 @@ migrate:
 migration:
 	understand/./manage.py makemigrations --settings=config.local
 
+superuser:
+	understand/./manage.py createsuperuser --settings=config.local
+
 run: migration migrate ## Sync the database, run collectstatic and start the server
 	understand/./manage.py runserver --settings=config.local
 
